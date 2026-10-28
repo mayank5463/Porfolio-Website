@@ -9,9 +9,9 @@
 
 <br/>
 
-[![Live Site](https://img.shields.io/badge/%F0%9F%9A%80_LIVE_SITE-Visit_Now-800020?style=for-the-badge&labelColor=1a1a1a)](https://YOUR-SITE-NAME.netlify.app)
+[![Live Site](https://img.shields.io/badge/%F0%9F%9A%80_LIVE_SITE-Visit_Now-800020?style=for-the-badge&labelColor=1a1a1a)](https://mayankporfoliowebsite.netlify.app/)
 [![Resume](https://img.shields.io/badge/%F0%9F%93%84_RESUME-Download-D4AF37?style=for-the-badge&labelColor=1a1a1a)](assets/resume.pdf)
-[![Contact](https://img.shields.io/badge/%E2%9C%89%EF%B8%8F_CONTACT-Get_in_touch-800020?style=for-the-badge&labelColor=1a1a1a)](https://YOUR-SITE-NAME.netlify.app/contact.html)
+[![Contact](https://img.shields.io/badge/%E2%9C%89%EF%B8%8F_CONTACT-Get_in_touch-800020?style=for-the-badge&labelColor=1a1a1a)](https://mayankporfoliowebsite.netlify.app/contact.html)
 
 ![Netlify](https://img.shields.io/badge/Deployed_on-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)

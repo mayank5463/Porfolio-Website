@@ -1,15 +1,15 @@
 <!-- ANIMATED HEADER -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=230&section=header&text=Mayank&fontSize=80&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20Backend%20%E2%80%A2%20GenAI&descSize=20&descAlignY=60" width="100%" alt="Mayank header" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=230&section=header&text=Mayank&fontSize=80&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20Backend%20%E2%80%A2%20AI&descSize=20&descAlignY=60" width="100%" alt="Mayank header" />
 
-<a href="https://YOUR-SITE-NAME.netlify.app">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=D4AF37&center=true&vCenter=true&width=700&lines=Building+scalable+backend+systems;Crafting+GenAI+%26+RAG+applications;Turning+ideas+into+production-ready+software;Welcome+to+my+portfolio+%F0%9F%91%8B" alt="Typing animation" />
+<a href="https://mayankporfoliowebsite.netlify.app">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=D4AF37&center=true&vCenter=true&width=700&lines=Building+scalable+backend+systems;Crafting+AI+%26+RAG+applications;Turning+ideas+into+production-ready+software;Welcome+to+my+portfolio+%F0%9F%91%8B" alt="Typing animation" />
 </a>
 
 <br/>
 
-[![Live Site](https://img.shields.io/badge/%F0%9F%9A%80_LIVE_SITE-Visit_Now-800020?style=for-the-badge&labelColor=1a1a1a)](https://mayankporfoliowebsite.netlify.app/)
+[![Live Site](https://img.shields.io/badge/%F0%9F%9A%80_LIVE_SITE-Visit_Now-800020?style=for-the-badge&labelColor=1a1a1a)](https://mayankporfoliowebsite.netlify.app)
 [![Resume](https://img.shields.io/badge/%F0%9F%93%84_RESUME-Download-D4AF37?style=for-the-badge&labelColor=1a1a1a)](assets/resume.pdf)
 [![Contact](https://img.shields.io/badge/%E2%9C%89%EF%B8%8F_CONTACT-Get_in_touch-800020?style=for-the-badge&labelColor=1a1a1a)](https://mayankporfoliowebsite.netlify.app/contact.html)
 
@@ -72,7 +72,7 @@ This site brings together who I am, what I've built, and how I think about engin
 
 <div align="center">
 
-[**Explore all projects →**](https://YOUR-SITE-NAME.netlify.app/work.html)
+[**Explore all projects →**](https://mayankporfoliowebsite.netlify.app/work.html)
 
 </div>
 
@@ -108,7 +108,7 @@ This site brings together who I am, what I've built, and how I think about engin
 <summary><b>🤖 Also on the site: AI / ML & fundamentals</b></summary>
 <br/>
 
-- **GenAI, LLMs, RAG, and AI Agents**
+- **AI, LLMs, RAG, and AI Agents**
 - **Machine Learning**
 - **System Design** and **Data Structures & Algorithms**
 - **REST API design**, **CI/CD**, and **message queues (BullMQ)**
@@ -208,7 +208,7 @@ I'm open to opportunities, collaborations, and good conversations about building
 [![GitHub](https://img.shields.io/badge/GitHub-mayank5463-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mayank5463)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-HANDLE)
 [![Email](https://img.shields.io/badge/Email-Say_Hello-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-800020?style=for-the-badge&logo=googlechrome&logoColor=white)](https://YOUR-SITE-NAME.netlify.app)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-800020?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mayankporfoliowebsite.netlify.app)
 
 </div>
 

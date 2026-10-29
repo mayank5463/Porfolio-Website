@@ -1,0 +1,64 @@
+/* About page: premium layer. Load AFTER consistent.css. Only adds ab-* classes and small overrides. */
+
+/* ---------- page head: cleaner, left-aligned on desktop ---------- */
+.page-head.ab-head{padding:44px 0 8px;text-align:center}
+.ab-head .wk-lead{margin-inline:auto;max-width:62ch;font-size:1.1rem;line-height:1.75}
+.ab-head .wk-badges{justify-content:center;margin-top:20px}
+
+/* ---------- story: full photo + details ---------- */
+.ab-story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:start;margin-top:48px}
+.ab-photo{position:sticky;top:24px;margin:0;padding:10px;border-radius:22px;border:1px solid rgba(224,183,106,.35);
+ background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));box-shadow:0 40px 70px -40px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+.ab-img{display:block;width:100%;height:auto;border-radius:14px;background:#0a0f16}   /* whole image, never cropped */
+.ab-photo figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 8px 8px}
+.ab-photo figcaption b{display:block;font-weight:600;font-size:1.02rem;color:#fff}
+.ab-photo figcaption small{display:block;margin-top:2px;font-size:.84rem;color:var(--mute,#9298a5)}
+.ab-live{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(93,240,160,.35);border-radius:99px;font-size:12px;color:#bff5d6;background:rgba(93,240,160,.06)}
+.ab-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#5df0a0;box-shadow:0 0 10px #5df0a0}
+
+.ab-copy h2{font:500 clamp(1.9rem,3.6vw,2.8rem)/1.12 'Cormorant Garamond',serif;color:#fff;margin:0 0 20px;max-width:20ch}
+.ab-copy p{max-width:60ch;margin-bottom:16px;font-size:1.04rem;line-height:1.8;color:#c9ccd4}
+.ab-facts{display:grid;grid-template-columns:1fr 1fr;margin:30px 0 28px;border-top:2px solid var(--gold,#e0b76a)}
+.ab-facts div{padding:16px 18px 16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.ab-facts div:nth-child(even){padding-left:18px;border-left:1px solid rgba(255,255,255,.1)}
+.ab-facts dt{margin:0 0 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold,#e0b76a)}
+.ab-facts dd{margin:0;font-weight:500;color:#fff}
+.ab-cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- method (replaces Design / Build / Ship strip) ---------- */
+.ab-method{margin:72px 0 24px;padding:clamp(28px,5vw,56px);border:1px solid rgba(224,183,106,.3);border-radius:22px;
+ background:radial-gradient(60% 90% at 100% 0,rgba(122,15,45,.28),transparent 70%),linear-gradient(135deg,#0b0d12,#14171f 60%,#0b0d12)}
+.ab-method-head{max-width:56ch;margin-bottom:36px}
+.ab-method-head h2{font:500 clamp(1.9rem,3.6vw,2.9rem)/1.1 'Cormorant Garamond',serif;color:#fff;margin:0 0 12px}
+.ab-method-head p{color:#aab0bc;line-height:1.7}
+.ab-steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.14)}
+.ab-steps li{position:relative;padding:30px 28px 8px 0}
+.ab-steps li+li{padding-left:28px;border-left:1px solid rgba(255,255,255,.1)}
+.ab-steps li::before{content:'';position:absolute;top:-2px;left:0;width:44px;height:3px;background:var(--gold,#e0b76a)}
+.ab-steps li+li::before{left:28px}
+.ab-steps i{display:block;margin-bottom:10px;font:500 1.1rem 'Cormorant Garamond',serif;font-style:normal;color:var(--gold,#e0b76a)}
+.ab-steps h3{font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:8px}
+.ab-steps p{color:#a3a9b6;line-height:1.7;font-size:.95rem;margin-bottom:14px}
+.ab-steps small{display:block;font-size:.82rem;color:#7f8695}
+
+/* ---------- polish for existing blocks ---------- */
+.pg-m{padding:20px 24px}
+.pg-m h3{font-size:1.15rem}
+.wk-solve>article,.wk-recog>article{height:100%}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+ .ab-story{grid-template-columns:1fr;margin-top:32px}
+ .ab-photo{position:static;max-width:460px;margin-inline:auto;width:100%}
+ .ab-copy h2{max-width:none}
+ .ab-steps{grid-template-columns:1fr;border-top:0}
+ .ab-steps li,.ab-steps li+li{padding:26px 0 18px;border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+ .ab-steps li::before,.ab-steps li+li::before{left:0}
+}
+@media(max-width:560px){
+ .page-head.ab-head{padding-top:28px}
+ .ab-facts{grid-template-columns:1fr}
+ .ab-facts div:nth-child(even){padding-left:0;border-left:0}
+ .ab-cta .btn{flex:1 1 100%;text-align:center}
+ .ab-method{margin-top:48px;border-radius:16px}
+}

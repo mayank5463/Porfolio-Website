@@ -136,7 +136,7 @@
 .wk-bars.in .wk-track i{width:var(--w)}
 .wk-solve{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .wk-solve article{padding:24px;display:flex;flex-direction:column;gap:8px}
-.wk-solve article:hover{transform:translateY(-4px)!important}
+.wk-solve article:hover{box-shadow:0 24px 50px -20px rgba(107,231,255,.35)}
 .wk-solve p{font-size:.92rem}
 .wk-ic{width:52px;height:52px;fill:none;stroke:#8feaff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible;margin-bottom:4px}
 .wk-ic *{transform-box:fill-box;transform-origin:center}

@@ -1,0 +1,59 @@
+/* Consistency layer: About, Work, Capabilities and Contact follow the Home page.
+   Load AFTER premium.css. Home's own files are not touched. */
+
+/* one progress bar only (premium.js draws the Home one) */
+.wk-progress{display:none}
+
+/* ---- page header = Home hero treatment (lamp, framed shimmer headline, centred) ---- */
+.page-head.intro{text-align:center;padding:18px 0 6px}
+.page-head.intro .lead{margin-inline:auto}
+.page-head.intro .wk-badges{justify-content:center}
+.page-head.intro::after{margin-inline:auto}
+.page-head.intro .display{margin-bottom:14px}
+
+/* ---- same 3D reveal as Home ---- */
+.wk-js .wk-rv{transform:perspective(900px) translateY(44px) rotateX(10deg);transform-origin:50% 100%}
+.wk-js .wk-rv.in{transform:none}
+.wk-js [data-stagger]>*{transform:perspective(900px) translateY(30px) rotateX(8deg);transform-origin:50% 100%}
+.wk-js [data-stagger].in>*{transform:none}
+.wk-js .pg-checks[data-stagger]>*{transform:translateX(-12px)}
+.wk-js .pg-checks[data-stagger].in>*{transform:none}
+/* cards with the Home tilt: quick transform, staggered fade */
+.wk-js [data-stagger]>[data-tilt]{transition:opacity .7s ease,transform .15s ease-out,border-color .3s,box-shadow .3s;transition-delay:calc(var(--i,0)*90ms),0s,0s,0s}
+.wk-solve>article:hover,.wk-recog>article:hover,.pg-svc:hover,.pg-tpl:hover{box-shadow:0 24px 50px -20px rgba(107,231,255,.35)}
+
+/* ---- section headings = Home's .sec-head (small caps title, note on the right) ---- */
+.wk-sec-head{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:4px 14px;margin:0 0 18px;text-transform:uppercase;letter-spacing:.18em}
+.wk-sec-head .wk-eyebrow{margin:0;font-size:11px;color:var(--gold,#e0b76a)}
+.wk-sec-head h2.display{display:block;width:auto;margin:0;padding:0;font:500 12px/1.4 Inter,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#e8eaee;background:none;-webkit-text-fill-color:#e8eaee;transform:none;animation:none;filter:none}
+.wk-sec-head p{margin:0;max-width:52ch;text-align:right;font-size:.9rem;letter-spacing:0;text-transform:none}
+.wk-sec-head::after{content:'';grid-column:1/-1;height:1px;margin-top:12px;background:linear-gradient(90deg,var(--gold,#e0b76a),var(--bl,#1b3fae),transparent);opacity:.55}
+.wk-sec>.wk-sec-head{margin-top:0}
+#projects.wk-sec-head{margin-top:56px}
+
+/* ---- sticky section index = the Home nav keys (maroon pattern, 3D hover) ---- */
+.wk-index{perspective:600px;border:2px solid rgba(224,183,106,.6);border-radius:16px;gap:8px;
+ background:linear-gradient(rgba(58,6,20,.9),rgba(36,4,14,.96)),var(--pat) 0 0/200px;
+ box-shadow:inset 0 2px 0 rgba(255,255,255,.12),0 18px 30px -16px rgba(0,0,0,.85)}
+.wk-index a{border:2px solid transparent;border-radius:10px;color:#f3dfe4}
+.wk-index a:hover{color:#fff;transform:translateY(-2px) rotateX(16deg)}
+.wk-index a.on{color:#fff;font-weight:600;background:linear-gradient(135deg,#7a0f2d,#1b3fae) padding-box,var(--pat) 0 0/120px border-box;
+ box-shadow:0 12px 22px -8px rgba(27,63,174,.65),0 5px 0 -2px var(--mr2,#3a0614)}
+
+/* ---- accents that echo Home ---- */
+.wk-avail{background:linear-gradient(110deg,rgba(93,240,160,.1),rgba(58,6,20,.35) 60%),rgba(255,255,255,.02)}
+.wk-orb.b{background:rgba(170,40,85,.22)}
+.pg-tab.on{border-color:var(--gold,#e0b76a)}
+.pg-step.on i{background:linear-gradient(135deg,#7a0f2d,#1b3fae);border-color:var(--gold,#e0b76a);color:#fff}
+
+@media(max-width:900px){
+  .wk-sec-head{grid-template-columns:auto 1fr}
+  .wk-sec-head p{grid-column:1/-1;text-align:left}
+}
+@media(prefers-reduced-motion:reduce){
+  .wk-js .wk-rv,.wk-js [data-stagger]>*{transform:none}
+}
+
+/* keep the full-bleed maroon nav strip (pages.css clipped it): clip stray overflow on <main> instead of the wrapper */
+.wrap{overflow-x:visible}
+main{overflow-x:clip}

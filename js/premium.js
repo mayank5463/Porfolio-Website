@@ -13,12 +13,12 @@
     links.addEventListener('click', () => links.classList.remove('open'));
   }
 
-  // Maroon 3D strips between sections
-  const strip = () => { const d = document.createElement('div'); d.className = 'mstrip rv'; d.innerHTML = '<span>Design</span><i>✦</i><span>Build</span><i>✦</i><span>Ship</span>'; io.observe(d); return d; };
+  // Maroon 3D strips between sections (static: no reveal, no scroll movement)
+  const strip = () => { const d = document.createElement('div'); d.className = 'mstrip'; d.innerHTML = '<span>Design</span><i>✦</i><span>Build</span><i>✦</i><span>Ship</span>'; return d; };
   q('[data-mount="featured"]')?.closest('section')?.before(strip());
   q('.cta')?.before(strip());
 
-  // Lamp over the headline (click or press Enter to switch it)
+  // Lamp over the headline (only runs if a .intro .display headline exists)
   const intro = q('.intro'), h1 = q('.intro .display');
   if (h1) {
     const l = document.createElement('div');
@@ -49,38 +49,39 @@
     });
   }
 
-  // Rangoli tech orbit: stack icons travel around the half flower
+  // Systems I build: simple, static, text-only section
   const stats = q('.stats');
-  if (stats && typeof DATA !== 'undefined' && typeof icon === 'function') {
+  if (stats) {
+    const GROUPS = [
+      ['Web Development', [
+        ['Website Development', 'Fast, responsive business and portfolio websites.'],
+        ['Web App Development', 'Full-stack applications built around your workflow.'],
+        ['Frontend Web Development', 'Clean, accessible interfaces in HTML, CSS, JavaScript and React.'],
+        ['Backend Web Development', 'Secure APIs, databases and server-side logic.'],
+        ['Web Maintenance', 'Updates, bug fixes, monitoring and performance care.']
+      ]],
+      ['Business Systems', [
+        ['ERP Development', 'Custom ERP platforms that connect your departments.'],
+        ['Inventory Management System', 'Stock, purchase, sales and supplier tracking.'],
+        ['School Management System', 'Students, staff, attendance, fees and results.'],
+        ['Hospital Management System', 'Patients, appointments, billing and records.'],
+        ['Hotel Management System', 'Bookings, rooms, billing and guest management.'],
+        ['All ERP Systems', 'Any industry-specific ERP, designed to your needs.']
+      ]],
+      ['AI Solutions', [
+        ['RAG Chatbot', 'Chatbots that answer from your own documents and data.'],
+        ['LLM Integration', 'Language-model features added to your existing product.']
+      ]]
+    ];
     const sec = document.createElement('section');
     sec.className = 'sec';
-    sec.innerHTML = '<div class="sec-head"><h2>Tech stack, in full bloom</h2><a href="capabilities.html">See the full stack ↗</a></div><div class="rang rv"><div class="rg-disc"></div><div class="rg-copy"><h3>Every tool, in orbit.</h3><p>Hover an icon to pause the orbit and read its name.</p></div><div class="rg-items"></div></div>';
+    sec.innerHTML = '<div class="sec-head"><h2>Systems I build</h2><a href="contact.html">Start a project ↗</a></div>'
+      + '<div class="sys"><div class="sys-intro"><h3>Software built for how your business works.</h3>'
+      + '<p>From a single website to a complete management system, each solution is planned, built and supported end to end.</p></div>'
+      + '<div class="sys-groups">'
+      + GROUPS.map(([g, items]) => `<div class="sys-group"><h4>${g}</h4><ul>${items.map(([t, d]) => `<li><strong>${t}</strong><span>${d}</span></li>`).join('')}</ul></div>`).join('')
+      + '</div></div>';
     stats.after(sec);
-    const rang = q('.rang', sec), host = q('.rg-items', sec);
-    io.observe(rang);
-    const its = DATA.stack.flatMap((g) => g.items).map(([n, k], i) => {
-      const el = document.createElement('div'); el.className = 'rg-i'; el.innerHTML = `${icon(k, n)}<b>${n}</b>`; host.append(el);
-      return { el, ring: i % 5 < 2 ? 0 : 1 };
-    });
-    [0, 1].forEach((r) => { const g = its.filter((x) => x.ring === r); g.forEach((x, j) => (x.a = (j / g.length) * Math.PI * 2)); });
-    let t = 0, last = performance.now(), paused = false, vis = true, mx = 0;
-    host.addEventListener('mouseover', (e) => { if (e.target.closest('.rg-i')) paused = true; });
-    host.addEventListener('mouseout', () => (paused = false));
-    rang.addEventListener('pointermove', (e) => { const r = rang.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - 0.5; });
-    new IntersectionObserver((es) => (vis = es[0].isIntersecting)).observe(rang);
-    const frame = (now) => {
-      const dt = Math.min(now - last, 50); last = now;
-      if (vis) {
-        if (!paused && !rm) t += dt / 1000;
-        const H = rang.clientHeight, W = rang.clientWidth, R = [H * 0.36, H * 0.56];
-        its.forEach((x) => {
-          const a = x.a + (x.ring ? 1 : -1) * t * (x.ring ? 0.07 : 0.11);
-          x.el.style.transform = `translate3d(${(W + R[x.ring] * Math.cos(a) + mx * 18).toFixed(1)}px,${(H / 2 + R[x.ring] * Math.sin(a)).toFixed(1)}px,0)`;
-        });
-      }
-      requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
   }
 
   // Radial dial menu (bottom right)
@@ -92,13 +93,11 @@
   kb.addEventListener('click', () => kb.setAttribute('aria-expanded', d.classList.toggle('open')));
   addEventListener('keydown', (e) => e.key === 'Escape' && d.classList.remove('open'));
 
-  // Scroll progress + strip parallax + Lenis smooth scrolling
+  // Scroll progress + Lenis smooth scrolling
   const bar = document.createElement('i'); bar.className = 'sprog'; document.body.append(bar);
-  const strips = qa('.mstrip');
   const onScroll = () => {
     const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
     bar.style.setProperty('--p', h > 0 ? (y / h).toFixed(4) : 0);
-    strips.forEach((s) => s.style.setProperty('--bx', -y * 0.3 + 'px'));
   };
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   if (!rm) {

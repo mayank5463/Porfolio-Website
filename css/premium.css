@@ -9,11 +9,10 @@ html.lenis,html.lenis body{height:auto}
 .rv{transform:perspective(900px) translateY(44px) rotateX(10deg);transform-origin:50% 100%}
 .rv.in{transform:none}
 
-/* navbar: maroon bandhani strip */
+/* navbar: maroon bandhani strip (STATIC, no movement) */
 .nav{padding:18px 0}
 .nav::before{background:linear-gradient(90deg,rgba(58,6,20,.9),rgba(122,15,45,.5) 50%,rgba(58,6,20,.9)),var(--pat) 0 0/260px;
- box-shadow:inset 0 -12px 20px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.14),0 18px 30px -16px rgba(0,0,0,.8);animation:pan 50s linear infinite}
-@keyframes pan{to{background-position:0 0,260px 0}}
+ box-shadow:inset 0 -12px 20px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.14),0 18px 30px -16px rgba(0,0,0,.8)}
 .nav::after{background:linear-gradient(90deg,transparent,var(--bl),var(--gold),var(--mr),transparent)}
 .logo-box{border:2px solid var(--gold);background:linear-gradient(rgba(58,6,20,.35),rgba(58,6,20,.72)),var(--pat) center/150px}
 .links{gap:10px}
@@ -28,7 +27,35 @@ html.lenis,html.lenis body{height:auto}
  .links a:not(.pill){width:100%}
 }
 
-/* lamp over the headline */
+/* ===== Hero header (dark panel, gold accents) ===== */
+.hx{position:relative;display:grid;grid-template-columns:1.05fr .95fr;min-height:600px;margin-top:10px;border-radius:22px;overflow:hidden;
+ border:1px solid rgba(224,183,106,.25);
+ background:radial-gradient(70% 90% at 85% 25%,rgba(122,15,45,.30),transparent 65%),linear-gradient(135deg,#090b10,#14171f 60%,#0b0d12);
+ box-shadow:0 40px 80px -40px #000,inset 0 1px 0 rgba(255,255,255,.06);animation:pagein .8s ease both}
+.hx-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:56px 0 56px 56px;text-align:left}
+.hx-eyebrow{font-size:13px;color:var(--gold);margin-bottom:18px}
+.hx-name{font:600 clamp(2.8rem,6vw,5rem)/1.02 Inter,system-ui,sans-serif;letter-spacing:-.02em;color:#fff;margin:0 0 14px}
+.hx-role{font-weight:500;font-size:clamp(1rem,1.7vw,1.3rem);color:var(--gold)}
+.hx-rule{display:block;width:46px;height:2px;margin:24px 0;background:var(--gold)}
+.hx-lead{max-width:46ch;margin-bottom:30px;font-size:1.02rem;line-height:1.75;color:#d6d9e0}
+.hx .btn.ghost{border-color:var(--gold);color:#f1dcb6}
+.hx .btn.ghost:hover{background:rgba(224,183,106,.12);color:#fff}
+.hx-cv{margin-top:20px;font-size:13px;color:#9298a5;transition:color .2s}
+.hx-cv:hover{color:var(--gold)}
+.hx-photo{position:relative;min-height:420px}
+.hx-photo::after{content:'';position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,rgba(9,11,16,.7));pointer-events:none}
+.hx-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%)}
+.hx-ph{position:absolute;inset:0;display:grid;place-items:center;font:500 110px 'Cormorant Garamond',serif;color:#4b5160}
+.hx+.stage{margin-top:40px}
+@media(max-width:900px){
+ .hx{grid-template-columns:1fr}
+ .hx-photo{order:-1;min-height:360px}
+ .hx-photo img{-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 32%);mask-image:linear-gradient(0deg,transparent 0,#000 32%)}
+ .hx-text{padding:6px 24px 40px}
+}
+
+/* lamp over the headline (kept, only shows if a .intro .display headline exists) */
 .lamp{position:relative;width:120px;height:140px;margin:4px auto -26px;transform-origin:50% 0;animation:sway 7s ease-in-out infinite;cursor:pointer;z-index:4;outline-offset:6px}
 @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 .lamp i{position:absolute;display:block}
@@ -48,34 +75,35 @@ html.lenis,html.lenis body{height:auto}
 @keyframes burst{40%{box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 140px 30px rgba(122,15,45,.8),0 0 120px rgba(60,190,255,.6)}}
 .node.ping{border-color:rgba(255,120,150,.85);box-shadow:0 0 34px rgba(122,15,45,.7),0 0 20px rgba(60,120,255,.5)}
 
-/* maroon 3D strips */
+/* maroon 3D strips: Design / Build / Ship (STATIC, no movement) */
 .mstrip{display:flex;align-items:center;justify-content:center;gap:28px;height:84px;margin:56px 0;border-radius:16px;border:2px solid rgba(224,183,106,.6);
- background:linear-gradient(rgba(58,6,20,.2),rgba(0,0,0,.5)),var(--pat) var(--bx,0) 0/240px;
+ background:linear-gradient(rgba(58,6,20,.2),rgba(0,0,0,.5)),var(--pat) 0 0/240px;
  box-shadow:0 36px 46px -26px #000,inset 0 2px 0 rgba(255,255,255,.2),inset 0 -14px 20px rgba(0,0,0,.45);
- font:400 26px Anton,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 3px 12px #000}
+ font:400 26px Anton,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:0 3px 12px #000;
+ transform:perspective(900px) rotateX(14deg)}
 .mstrip i{font-style:normal;color:var(--gold);font-size:18px}
-.mstrip.rv.in{transform:perspective(900px) rotateX(14deg)}
 
-/* rangoli tech orbit */
-.rang{--H:clamp(460px,62vw,680px);position:relative;height:var(--H);overflow:hidden;border-radius:22px;border:2px solid transparent;
- background:radial-gradient(120% 90% at 100% 50%,#4a0818,#120a10 70%) padding-box,var(--pat) 0 0/160px border-box}
-.rg-disc{position:absolute;right:calc(var(--H)*-.6);top:50%;width:calc(var(--H)*1.2);height:calc(var(--H)*1.2);margin-top:calc(var(--H)*-.6);border-radius:50%;
- background:url(../assets/rangoli.jpg) -40% 50%/70% auto no-repeat;box-shadow:0 0 90px rgba(224,183,106,.3);
- -webkit-mask-image:radial-gradient(circle closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 78%,transparent 100%);
- animation:breathe2 9s ease-in-out infinite alternate}
-@keyframes breathe2{to{transform:scale(1.05);filter:saturate(1.25)}}
-.rg-copy{position:absolute;left:5%;top:50%;translate:0 -50%;max-width:300px;z-index:2}
-.rg-copy h3{font:400 clamp(1.8rem,3.4vw,2.8rem)/1.05 Anton,sans-serif;text-transform:uppercase;margin-bottom:10px;background:linear-gradient(180deg,#fff,#e0b76a);-webkit-background-clip:text;background-clip:text;color:transparent}
-.rg-copy p{color:#e3c9d0;font-size:.95rem}
-.rg-items{position:absolute;inset:0;z-index:3}
-.rg-i{position:absolute;left:0;top:0;width:54px;height:54px;margin:-27px 0 0 -27px;will-change:transform}
-.rg-i .ic{width:54px;height:54px;border-radius:16px;border:2px solid var(--gold);box-shadow:0 8px 20px rgba(58,6,20,.85);cursor:pointer}
-.rg-i .ic img{width:32px;height:32px}
-.rg-i:hover{z-index:5}
-.rg-i:hover .ic{transform:scale(1.3) translateY(-4px);box-shadow:0 0 24px rgba(27,63,174,.9),0 0 30px rgba(122,15,45,.9)}
-.rg-i b{position:absolute;top:100%;left:50%;translate:-50% 10px;font:600 11px Inter,sans-serif;white-space:nowrap;color:#fff;background:var(--mr2);border:1px solid var(--gold);padding:3px 9px;border-radius:7px;opacity:0;transition:opacity .2s;pointer-events:none}
-.rg-i:hover b{opacity:1}
-@media(max-width:900px){.rg-copy{display:none}}
+/* systems I build: static, text only, square corners, no hover */
+.sys{border:1px solid rgba(224,183,106,.3);background:linear-gradient(135deg,#0b0d12,#14171f 60%,#0b0d12);padding:56px 48px 40px}
+.sys-intro{max-width:62ch;margin-bottom:44px}
+.sys-intro h3{font:500 clamp(2rem,4vw,3.1rem)/1.1 'Cormorant Garamond',serif;color:#fff;letter-spacing:.01em;margin-bottom:14px}
+.sys-intro p{font:400 1rem/1.75 Inter,system-ui,sans-serif;color:#c9ccd4}
+.sys-groups{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--gold)}
+.sys-group{padding:28px 30px 12px;border-right:1px solid rgba(255,255,255,.1)}
+.sys-group:first-child{padding-left:0}
+.sys-group:last-child{border-right:0;padding-right:0}
+.sys-group h4{font:600 12px Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.sys-group ul{display:flex;flex-direction:column}
+.sys-group li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.sys-group li:last-child{border-bottom:0}
+.sys-group strong{display:block;font:600 1.02rem Inter,system-ui,sans-serif;color:#fff;margin-bottom:4px}
+.sys-group span{display:block;font:400 .9rem/1.6 Inter,system-ui,sans-serif;color:#9ea4b1}
+@media(max-width:900px){
+ .sys{padding:36px 22px 22px}
+ .sys-groups{grid-template-columns:1fr}
+ .sys-group,.sys-group:first-child,.sys-group:last-child{padding:24px 0 8px;border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}
+ .sys-group:last-child{border-bottom:0}
+}
 
 /* radial dial menu (bottom right) */
 .dial{position:fixed;right:22px;bottom:22px;z-index:90;perspective:700px}
@@ -97,4 +125,4 @@ html.lenis,html.lenis body{height:auto}
 .dial.open .knob i::after{top:0;transform:rotate(-45deg)}
 
 @media(max-width:560px){.mstrip{font-size:16px;gap:14px;height:64px}.dial{right:14px;bottom:14px}}
-@media(prefers-reduced-motion:reduce){.nav::before,.lamp,.rg-disc{animation:none}.rv{transform:none}}
+@media(prefers-reduced-motion:reduce){.lamp,.hx{animation:none}.rv{transform:none}}
